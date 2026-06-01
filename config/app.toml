@@ -1,0 +1,7 @@
+[app]
+name = "twt-full-stack-t2"
+address = "0.0.0.0"
+port = 3000
+
+[sea-orm]
+uri = "postgres://postgres:postgres@127.0.0.1/twitter"

@@ -1,0 +1,22 @@
+[package]
+name = "twt-full-stack-t2"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+axum = { version = "0.8.9", features = ["macros"] }
+dotenvy = "0.15.7"
+serde = { version = "1.0.228", features = ["derive"] }
+serde_json = "1.0.150"
+time = { version = "0.3.47", features = ["serde"] }
+tokio = { version = "1.52.3", features = ["rt-multi-thread", "macros", "full"] }
+tower-http = { version = "0.6.11", features = ["cors"] }
+uuid = { version = "1.23.1", features = ["v4", "serde"] }
+
+sea-orm = "1.1.20"
+aestivate = { git = "https://github.com/Sam-Umbra/aestivate.git", version = "0.1.1"}
+
+spring = "0.4.8"
+spring-sea-orm = "0.4.8"
+spring-web = "0.4.17"
+spring-sqlx = "0.4.2"
