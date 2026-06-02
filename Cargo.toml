@@ -13,10 +13,14 @@ tokio = { version = "1.52.3", features = ["rt-multi-thread", "macros", "full"] }
 tower-http = { version = "0.6.11", features = ["cors"] }
 uuid = { version = "1.23.1", features = ["v4", "serde"] }
 
-sea-orm = "1.1.20"
-aestivate = { git = "https://github.com/Sam-Umbra/aestivate.git", version = "0.1.1"}
+sea-orm = {version = "1.1.20", features = ["sqlx-postgres", "runtime-tokio-rustls", "macros"]}
 
 spring = "0.4.8"
 spring-sea-orm = "0.4.8"
 spring-web = "0.4.17"
-spring-sqlx = "0.4.2"
+
+anyhow = "1"
+thiserror = "1"
+
+tracing = "0.1"
+chrono = "0.4.44"
