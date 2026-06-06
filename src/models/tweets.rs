@@ -4,11 +4,14 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, PartialEq, DeriveEntityModel, Eq, Serialize, Deserialize)]
 #[sea_orm(table_name = "tweets")]
 pub struct Model {
-    #[sea_orm(primary_key, auto_increment = false)]
+    #[sea_orm(primary_key, auto_increment = true)]
     pub id: Uuid,
     pub author_id: Uuid,
     pub content: String,
     pub created_at: DateTimeWithTimeZone,
+    pub author_username: String,
+    pub author_display_name: String,
+    pub author_avatar_url: Option<String>,
 }
 
 #[derive(Copy, Clone, Debug, EnumIter, DeriveRelation)]
@@ -30,3 +33,9 @@ impl Related<super::users::Entity> for Entity {
 }
 
 impl ActiveModelBehavior for ActiveModel {}
+
+#[derive(Debug, Deserialize)]
+pub struct TweetCDto {
+    pub author_id: Uuid,
+    pub content: String,
+}

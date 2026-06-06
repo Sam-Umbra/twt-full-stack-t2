@@ -1,7 +1,6 @@
 use chrono::Utc;
 use sea_orm::{
-    entity::prelude::DateTimeWithTimeZone, ActiveModelTrait, ActiveValue::Set, ColumnTrait,
-    DatabaseConnection, EntityTrait, QueryFilter,
+    ActiveModelTrait, ActiveValue::{NotSet, Set}, ColumnTrait, DatabaseConnection, EntityTrait, QueryFilter,
 };
 
 use crate::{
@@ -41,6 +40,7 @@ impl<'db> UserRepository<'db> {
         }: UserCDTO,
     ) -> Result<Model> {
         let active = ActiveModel {
+            id: NotSet,
             username: Set(username),
             display_name: Set(display_name),
             created_at: Set(Utc::now().fixed_offset()),
@@ -48,6 +48,4 @@ impl<'db> UserRepository<'db> {
         };
         active.insert(self.db).await.map_err(AppError::Database)
     }
-
-    
 }

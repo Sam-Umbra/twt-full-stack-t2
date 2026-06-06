@@ -8,8 +8,5 @@ pub mod models {
 
 pub mod repositories {
     pub mod user_repository;
-}
-
-pub mod services {
-    pub mod user_service;
+    pub mod tweet_repository;
 }
